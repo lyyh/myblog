@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": [ "ie > 8", "chrome >= 62" ],
+        "node":"8.9.0"
+      },
+      "debug": true,
+      "modules":false, // webpack 2 本身已支持es6 module
+      "include": [],
+      "useBuiltIns": true // 根据 preset-env 配置，引用部分polyfill，在入口文件中要引用 babel-polyfill
+    }],
+    "react",
+    "stage-0" // stage-x系列的最大集合
+  ],
+  "plugins": ["react-hot-loader/babel"]
+}

@@ -1,0 +1,23 @@
+@import '../global/global.scss';
+$color: aqua;
+$prefix: 'head-wrap';
+
+.head-wrap{
+    @at-root #{&}_aqua{
+        height: 10px;
+        background-color: $color;
+        & #{$prefix}-tr{
+            height: 20px;
+        }
+        &:hover{
+            background-color: black;
+        }
+    }
+    @at-root #{&}_a{
+        color: #333
+    }
+    background-color: #eee;
+}
+.head-wrap_bg{
+    background-color: #cccccc;
+}
