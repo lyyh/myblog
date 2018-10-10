@@ -1,0 +1,8 @@
+.table-wrap1{
+  & tbody[data-role='iui-tbody']{
+    & tr[data-role='iui-body-cell']:nth-of-type(odd) {
+      background-color: #91d5ff;
+    }
+  }
+
+}

@@ -1,0 +1,10 @@
+.table-wrap{}
+
+.table-head-wrap{
+  background-color: lighten(blue,30);
+}
+.table-body-wrap{
+  tr:nth-of-type(odd){
+    background-color: #1a98ff;
+  }
+}

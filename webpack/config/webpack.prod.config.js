@@ -4,36 +4,18 @@
  * @Description:
  */
 
+const merge = require('webpack-merge');
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const baseConfig = require('./webpack.base.config')
+const baseConfig = require('./webpack.base.config');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CleanPlugin = require('clean-webpack-plugin');
 
 const config = merge.smart(baseConfig, {
-    module: {
-        rules: [
-            {
-                test: /\.less$/,
-                exclude: /node_modules/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                minimize: true
-                            }
-                        },
-                        'less-loader',
-                    ],
-                }),
-            },
-        ],
-    }
-})
+    devtool: 'cheap-source-map',
+});
 
-config.plugins.push(new ExtractTextPlugin('[name].css'))
+const dist = path.resolve(__dirname, "../dist");
+config.plugins.push(new CleanPlugin(dist.split('\\').pop(), {root: path.resolve(dist, '../')}));
+config.plugins.push(new BundleAnalyzerPlugin({analyzerPort: 8887}));
 
-module.exports = config
+module.exports = config;

@@ -1,23 +1,70 @@
 @import '../global/global.scss';
-$color: aqua;
-$prefix: 'head-wrap';
 
-.head-wrap{
-    @at-root #{&}_aqua{
-        height: 10px;
-        background-color: $color;
-        & #{$prefix}-tr{
-            height: 20px;
-        }
-        &:hover{
-            background-color: black;
-        }
+$table-border-color: #E6E6E6;/*#F6F6F6;*/
+
+.cleanUI {
+  & .table-head {
+    background-color: inherit;
+  }
+
+  & .header {
+    background-color: inherit;
+
+    & .header-cell {
+      color: $text-color;
+      border-top: none;
+      box-shadow: none;
     }
-    @at-root #{&}_a{
-        color: #333
+  }
+
+  & .sub-header {
+    background-color: inherit;
+
+    & .header-cell {
+      border-top: none;
+      border-bottom: 1px solid $table-border-color;
     }
-    background-color: #eee;
+  }
+
+  & .meta-column {
+    height: 32px;
+  }
+
+  & .row {
+    background-color: inherit;
+
+    line-height: 31px;
+
+    & .cell {
+      height: 32px;
+
+      border-top: none;
+      border-bottom: none;
+    }
+  }
 }
-.head-wrap_bg{
-    background-color: #cccccc;
+
+.table-head{
+  background-color: #c8c8c8;
+}
+
+.table-body{
+  border-collapse:collapse;
+  tr:nth-of-type(odd){
+    background-color: #e8e8e8;
+  }
+  .row{
+    cursor: pointer;
+    &:hover{
+      background-color: #D1F0FF;
+    }
+  }
+  .cell{
+    line-height: 30px;
+    padding: 0 10px;
+  }
+}
+
+.header-cell{
+  padding: 10px 15px;
 }

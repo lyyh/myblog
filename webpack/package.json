@@ -1,13 +1,12 @@
 {
-  "name": "webpack-examples-basic",
+  "name": "iui-examples",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/bundle.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --hot"
+    "build": "export NODE_ENV=production && webpack --mode production",
+    "start": "export NODE_ENV=development && webpack-dev-server --mode development --hot"
   },
-  "author": "teabyii <teabyii@gmail.com>",
+  "author": "anserliu",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^8.2.0",
@@ -16,6 +15,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
@@ -35,13 +35,16 @@
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
     "webpack": "^4.20.2",
+    "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "styled-components": "^3.4.9"
   }
 }

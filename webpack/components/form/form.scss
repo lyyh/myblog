@@ -7,4 +7,78 @@
   color: #222222;
 }
 
+$color: aqua;
+$prefix: 'head-wrap';
 
+.head-wrap {
+  @at-root #{&}_aqua {
+    height: 10px;
+    background-color: $color;
+    & #{$prefix}-tr {
+      height: $size10;
+    }
+
+    &:hover {
+      background-color: black;
+    }
+  }
+  @at-root #{&}_a {
+    color: #333
+  }
+  background-color: #eee;
+}
+
+.head-wrap_bg {
+  background-color: #cccccc;
+}
+
+$border: 1px solid #EFC6F3;
+.post {
+  border-radius: 3px;
+  background: #FFF8FF;
+  border: 1px solid $border;
+  padding: 15px;
+  color: #333333;
+  .title {
+    color: #000000;
+    font-size: 20px;
+  }
+  .alt-title {
+    @extend .title;
+    border-bottom: 1px solid $border;
+  }
+}
+
+
+@mixin br3{ /* 没有传参 */
+  border-radius: 3px;
+}
+@mixin br4($br4){ /* 传一个不带值的参数 */
+  border-radius: $br4;
+}
+@mixin br6($br6: 6px){ /* 传一个带值的参数 */
+  border-radius: $br6;
+}
+@mixin position-center($width, $height){ /* 传多个参数 */
+  width: $width;
+  height: $height;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: (-($height)/2) 0 0 (-($width)/2);
+}
+div{
+  @include br4(4px); /* 调用混合宏 */
+  @include br3();   /* 没有传值3px */
+  @include br6();   /* 如果不传值就是6px,传值会覆盖原始值 */
+}
+.pos-center{
+  @include position-center(600px, 300px);
+}
+
+$icon-list: down, up, file, hot;
+@for $c from 1 through length($icon-list){
+  .icon-#{nth($icon-list,$c)}{
+    background-position: 0 -30px * $c;
+  }
+}
