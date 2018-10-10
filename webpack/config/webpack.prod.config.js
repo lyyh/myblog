@@ -11,7 +11,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CleanPlugin = require('clean-webpack-plugin');
 
 const config = merge.smart(baseConfig, {
-    devtool: 'cheap-source-map',
+    devtool: 'source-map',
 });
 
 const dist = path.resolve(__dirname, "../dist");
